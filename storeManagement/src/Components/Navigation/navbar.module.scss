@@ -1,0 +1,23 @@
+    .navbarContainer {
+        width: 100%;
+        nav {
+        display: flex;
+        height: 5.2rem;
+        width: 100%;
+        background: var(--primary-color);
+        font-size: 1.5rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 3rem 0.5rem 3rem;
+    
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--text-hover);
+            letter-spacing: 2px;
+            font-size: 3rem;
+            cursor: context-menu;
+        }
+        }
+    }
+    

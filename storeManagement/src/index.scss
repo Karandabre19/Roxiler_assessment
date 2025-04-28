@@ -1,0 +1,10 @@
+@use "./Styles/Abstract/variables" as *;
+@use "./Styles/style" as *;
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

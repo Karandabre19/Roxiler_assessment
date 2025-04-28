@@ -1,0 +1,69 @@
+.InputMainContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 2.4% 0 0 0;
+  
+    .inputError {
+      font-size: 1.1rem;
+      position: absolute;
+      bottom: 97%;
+      color: #ff366f;
+      width: 97%;
+      font-weight: 400;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      cursor: context-menu;
+    }
+  
+    .alertTextContainer {
+      font-size: 1.1rem;
+      position: absolute;
+      bottom: 97%;
+      color: var(--secondary-color);
+      width: 97%;
+      font-weight: 400;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+  
+    .inputContainer {
+      display: flex;
+      width: 100%;
+      height: 3rem;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 0.2rem solid var(--primary-color);
+      border-left: 0.2rem solid var(--primary-color);
+      // border-right: 0.2rem solid var(--primary-color);
+      border-radius: 0.5rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  
+      .inputSymbol {
+        font-size: 1.87rem;
+        padding: 0 0 0 0.5rem;
+        svg {
+          path {
+            fill: var(--primary-color);
+          }
+        }
+      }
+  
+      input {
+        width: 87%;
+        height: 100%;
+        padding: 0 0 0 0.4rem;
+        font-size: 1.25rem;
+        border-radius: 0.5rem;
+        outline: none;
+        &::placeholder {
+          color: var(--placeholder-color);
+        }
+      }
+    }
+  }
+  
