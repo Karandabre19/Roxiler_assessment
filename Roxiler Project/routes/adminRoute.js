@@ -10,5 +10,4 @@ router.get("/stores" , authenticationToken , adminController.getAllStores)
 router.get("/stores/:storeId" , authenticationToken , adminController.getStoreDetails)
 router.get("/stores/filter" , authenticationToken , adminController.filterStores)
 
-
 module.exports = router

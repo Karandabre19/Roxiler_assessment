@@ -50,3 +50,5 @@ export const AuthenticationSlice = createSlice({
         })
     }
 })
+
+export default AuthenticationSlice.reducer;

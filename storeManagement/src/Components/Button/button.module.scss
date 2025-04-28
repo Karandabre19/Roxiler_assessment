@@ -1,0 +1,18 @@
+.button {
+    height: 3rem;
+    width: 100%;
+    border: 0.2rem solid var(--primary-color);
+    border-radius: 6rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    &:hover {
+      color: var(--text-hover);
+      background-color: var(--primary-color);
+    }
+  }
+  

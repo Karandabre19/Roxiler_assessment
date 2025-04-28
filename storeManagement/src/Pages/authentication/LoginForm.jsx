@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Button from "../../Components/Button/Button";
 import CustomInput from "../../Components/Input/CustomInput";
 import { loginUser } from "../../Redux/Async/AsyncFunction";
+import LoginModuleCss from "../../Styles/login.module.scss";
 
 const Login = () => {
   const {
@@ -16,7 +18,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, role } = useSelector((state) => state.authentication);
+  // const { role } = useSelector((state) => state.authentication);
 
   const onSubmit = async (data) => {
     const payload = {
@@ -27,14 +29,20 @@ const Login = () => {
     try {
       const result = await dispatch(loginUser(payload)).unwrap();
 
-      if (result.isAdmin && role === "admin") {
-        navigate("/admin");
-        toast.success("Login successful as admin");
-      }
-      if (!result.isAdmin && role === "user"){
-        navigate("/user");
-        toast.success("Login successful as patient");
-      }
+      console.log(result)
+
+      // if (result.isAdmin && role === "Admin") {
+      //   navigate("/admin");
+      //   toast.success("Login successful as Admin");
+      // }
+      // if (!result.isAdmin && role === "User"){
+      //   navigate("/user");
+      //   toast.success("Login successful as patient");
+      // }
+      // if (!result.isAdmin && role === "Owner"){
+      //   navigate("/Owner");
+      //   toast.success("Login successful as patient");
+      // }
     } catch (error) {
       toast.error(error.message);
     }
@@ -43,7 +51,6 @@ const Login = () => {
   
   return (
     <div className={LoginModuleCss.loginPage}>
-      <Navbar />
       <div className={LoginModuleCss.loginDashBoard}>
         <div className={LoginModuleCss.loginForm}>
           <div className={LoginModuleCss.formSection}>
@@ -86,24 +93,11 @@ const Login = () => {
               </div>
               <div className={LoginModuleCss.loginButton}>
                 <Button type="submit">
-                  {loading ? "Logging in..." : "Log In"}
+                  Login
                 </Button>
               </div>
             </form>
           </div>
-          <div className={LoginModuleCss.loginUnderline}>
-            <span className={LoginModuleCss.line}></span>
-            <span className={LoginModuleCss.or}>OR</span>
-            <span className={LoginModuleCss.line}></span>
-          </div>
-          <div className={LoginModuleCss.googleLoginButton}>
-            <Button
-            >
-            </Button>
-          </div>
-        </div>
-        <div className={LoginModuleCss.loginScreenImage}>
-          <img src={authenticateScreenImage} alt="Authentication" />
         </div>
       </div>
     </div>
