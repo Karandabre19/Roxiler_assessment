@@ -2,11 +2,10 @@ import { faEnvelope, faLock, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import CustomInput from "../";
-import Button from "src/Components/button/Button";
-import Navbar from "src/Components/navbar/Navbar";
-import { registerUser } from "src/redux/Slices/async/AsyncFunction";
-import registerStyleModule from "src/styles/register.module.scss";
+import Button from "../../Components/Button/Button";
+import CustomInput from "../../Components/Input/CustomInput";
+import { registerUser } from "../../Redux/Async/AsyncFunction";
+import registerStyleModule from "../../Styles/register.module.scss";
 
 const Registration = () => {
   const {
@@ -17,7 +16,6 @@ const Registration = () => {
   } = useForm();
 
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.authentication);
 
   const password = watch("user_password");
 
@@ -40,7 +38,6 @@ const Registration = () => {
 
   return (
     <div className={registerStyleModule.registerPage}>
-      <Navbar />
       <div className={registerStyleModule.registrationDashboard}>
         <div className={registerStyleModule.registerForm}>
           <div className={registerStyleModule.formSection}>
@@ -51,37 +48,11 @@ const Registration = () => {
             </h2>
             
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className={registerStyleModule.name}>
-                <CustomsInput
-                  placeholder="First name"
-                  type="text"
-                  inputName="first_name"
-                  register={register}
-                  errors={errors}
-                  validation={{
-                    required: "* First name",
-                    maxLength: 8,
-                    pattern: /^[A-Za-z ]{1,7}$/,
-                  }}
-                />
-                <CustomInput
-                  placeholder="Last name"
-                  type="text"
-                  inputName="last_name"
-                  register={register}
-                  errors={errors}
-                  validation={{
-                    required: "* last name",
-                    maxLength: 8,
-                    pattern: /^[A-Za-z ]{1,7}$/,
-                  }}
-                />
-              </div>
               <CustomInput
                 icon={faEnvelope}
-                placeholder="Email"
+                placeholder="Full Name"
                 type="email"
-                inputName="email"
+                inputName="name"
                 register={register}
                 errors={errors}
                 validation={{
@@ -90,10 +61,10 @@ const Registration = () => {
                 }}
               />
               <CustomInput
-                placeholder="Enter phone number"
+                placeholder="Enter Email"
                 icon={faPhone}
                 type="text"
-                inputName="mobile_number"
+                inputName="email"
                 register={register}
                 errors={errors}
                 validation={{
@@ -103,7 +74,7 @@ const Registration = () => {
               />
               <CustomInput
                 icon={faLock}
-                placeholder="Password"
+                placeholder="Enter Password"
                 type="password"
                 inputName="user_password"
                 register={register}
@@ -115,8 +86,8 @@ const Registration = () => {
               />
               <CustomInput
                 icon={faLock}
-                placeholder="Confirm Password"
-                type="password"
+                placeholder="Please add your personal address"
+                type="address"
                 inputName="confirm_password"
                 register={register}
                 errors={errors}
@@ -131,7 +102,7 @@ const Registration = () => {
                   type="submit"
                   className={registerStyleModule.signupButton}
                 >
-                  {loading ? "Registering..." : "Register"}
+                  Register
                 </Button>
                 <p className={registerStyleModule.alreadyAccount}>
                   Already have an account?{" "}

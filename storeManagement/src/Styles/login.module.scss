@@ -56,10 +56,10 @@
                 height: 3rem;
                 width: 100%;
                 cursor: pointer;
-                background: var(--before-color);
+                color: var(--text-hover);
+                background: var(--secondary-color);
                 border: 0.1rem solid var(--secondary-color);
                 font-size: 1.25rem;
-                color: var(--text-Color);
                 border-radius: 2rem;
                 transition: all 0.3s ease-in-out;
   
