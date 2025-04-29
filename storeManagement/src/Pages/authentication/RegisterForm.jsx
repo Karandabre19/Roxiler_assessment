@@ -1,4 +1,4 @@
-import { faEnvelope, faLocation, faLocationDot, faLock, faMapLocationDot, faPhone, faSignature, faVoicemail } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faIdBadge, faLocation, faLocationDot, faLock, faMapLocationDot, faPhone, faSignature, faVoicemail } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ const Registration = () => {
             
             <form onSubmit={handleSubmit(onSubmit)}>
               <CustomInput
-                icon={faSignature}
+                icon={faIdBadge}
                 placeholder="Full Name"
                 type="text"
                 inputName="name"

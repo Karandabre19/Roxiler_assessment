@@ -18,31 +18,34 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const { role } = useSelector((state) => state.authentication);
+
+  const { role } = useSelector((state) => state.Authentication);
 
   const onSubmit = async (data) => {
     const payload = {
       email: data.email,
-      user_password: data.password,
+      password: data.password,
     };
 
     try {
-      const result = await dispatch(loginUser(payload)).unwrap();
+      
+      await dispatch(loginUser(payload)).unwrap();
 
-      console.log(result)
 
-      // if (result.isAdmin && role === "Admin") {
-      //   navigate("/admin");
-      //   toast.success("Login successful as Admin");
-      // }
-      // if (!result.isAdmin && role === "User"){
-      //   navigate("/user");
-      //   toast.success("Login successful as patient");
-      // }
-      // if (!result.isAdmin && role === "Owner"){
-      //   navigate("/Owner");
-      //   toast.success("Login successful as patient");
-      // }
+      if (role === "Admin") {
+        navigate("/admin");
+        toast.success("Login successful as Admin");
+      }
+      if (role === "User"){
+        navigate("/user");
+        toast.success("Login successful as user");
+      }
+      if (role === "Owner"){
+        navigate("/owner");
+        toast.success("Login successful as owner");
+      }
+
+      console.log("i reached here")
     } catch (error) {
       toast.error(error.message);
     }

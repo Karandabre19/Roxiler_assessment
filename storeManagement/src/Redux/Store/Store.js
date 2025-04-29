@@ -7,7 +7,7 @@ import authReducer from "../Slices/AuthenticationSlice"
 const persistConfig = {
     key: "root",
     storage: storageSession,
-    whitelist: ["authentications"],
+    whitelist: ["Authentication"],
   };
 
   const rootReducer = combineReducers({

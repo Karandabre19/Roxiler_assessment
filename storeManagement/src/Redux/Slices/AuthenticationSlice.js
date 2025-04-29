@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { loginUser } from "../Async/AsyncFunction";
-import { registerUser } from "../Async/AsyncFunction";
+import { loginUser , registerUser } from "../Async/AsyncFunction";
 
 const initialState = {
-    token: localStorage.getItem("token") || null,
-    role: localStorage.getItem("role") || null,
+    token:null,
+    role:null,
     loading: false,
-    isAdmin: 0,
-    isAuthenticated: localStorage.getItem("isAuthenticated") || false,
+    isAuthenticated:false,
     };
 
 export const AuthenticationSlice = createSlice({
@@ -43,10 +41,13 @@ export const AuthenticationSlice = createSlice({
         }).addCase(loginUser.fulfilled , ( state , action) => {
             state.loading = false;
             state.isAuthenticated = true;
-            state.token = action.payload.data.token;
-            state.role = action.payload.data.user.role;
-            state.isAdmin = action.payload.data.user.role === 'Admin' ? 1 : 0;
+            state.token = action.payload.token;
+            state.role = action.payload.user.role;
+            console.log(state.role)
             toast.success(action.payload.message)
+        }).addCase(loginUser.rejected, (state , action) => {
+            state.loading = false ;
+            toast.error(action.payload.message)
         })
     }
 })
