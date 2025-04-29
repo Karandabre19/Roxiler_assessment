@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosInstance } from "../../services/api";
+import { toast } from "react-toastify";
 
 
 export const registerUser = createAsyncThunk(
@@ -8,6 +9,8 @@ export const registerUser = createAsyncThunk(
             const response = await axiosInstance.post("/user/register" , userData)
             return response.data
         } catch (error) {
+            console.error(error)
+            toast.error(error.message)
             return rejectWithValue(error.response.data.message)
         }
     }

@@ -7,6 +7,7 @@ import Button from "../../Components/Button/Button";
 import CustomInput from "../../Components/Input/CustomInput";
 import { loginUser } from "../../Redux/Async/AsyncFunction";
 import LoginModuleCss from "../../Styles/login.module.scss";
+import { rules } from "eslint-plugin-react-refresh";
 
 const Login = () => {
   const {
@@ -19,7 +20,6 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { role } = useSelector((state) => state.Authentication);
 
   const onSubmit = async (data) => {
     const payload = {
@@ -29,7 +29,11 @@ const Login = () => {
 
     try {
       
-      await dispatch(loginUser(payload)).unwrap();
+      const result = await dispatch(loginUser(payload)).unwrap();
+
+      const { user } = result
+
+      const { role } = user
 
 
       if (role === "Admin") {
