@@ -21,16 +21,9 @@ const Registration = () => {
 
   const onSubmit = (data) => {
     console.log("I am here")
-    const payload = {
-      last_name: data.last_name,
-      first_name: data.first_name,
-      email: data.email,
-      user_password: data.user_password,
-      mobile_number: data.mobile_number,
-    };
 
     try {
-      dispatch(registerUser(payload));
+      dispatch(registerUser(data));
     } catch (error) {
       console.error("Error registering user", error);
     }
@@ -51,8 +44,16 @@ const Registration = () => {
               <CustomInput
                 icon={faEnvelope}
                 placeholder="Full Name"
-                type="email"
+                type="text"
                 inputName="name"
+                register={register}
+                errors={errors}
+              />
+              <CustomInput
+                placeholder="Enter Email"
+                icon={faPhone}
+                type="email"
+                inputName="email"
                 register={register}
                 errors={errors}
                 validation={{
@@ -61,22 +62,10 @@ const Registration = () => {
                 }}
               />
               <CustomInput
-                placeholder="Enter Email"
-                icon={faPhone}
-                type="text"
-                inputName="email"
-                register={register}
-                errors={errors}
-                validation={{
-                  required: "* Phone number",
-                  pattern: /^\d{10}$/,
-                }}
-              />
-              <CustomInput
                 icon={faLock}
                 placeholder="Enter Password"
                 type="password"
-                inputName="user_password"
+                inputName="password"
                 register={register}
                 errors={errors}
                 validation={{
@@ -87,15 +76,10 @@ const Registration = () => {
               <CustomInput
                 icon={faLock}
                 placeholder="Please add your personal address"
-                type="address"
-                inputName="confirm_password"
+                type="text"
+                inputName="address"
                 register={register}
                 errors={errors}
-                validation={{
-                  required: "Please confirm password",
-                  validate: (value) =>
-                    value === password || "Passwords do not match",
-                }}
               />
               <div className={registerStyleModule.registerAndLoginLink}>
                 <Button

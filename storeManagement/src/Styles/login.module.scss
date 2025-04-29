@@ -41,7 +41,7 @@
             gap: 1.5rem;
   
             .toRegister {
-              font-size: 1.15rem;
+              font-size: 1.25rem;
               padding-left: 0.5rem;
             }
   
@@ -70,22 +70,6 @@
                 }
               }
             }
-          }
-        }
-        .loginUnderline {
-          display: flex;
-          align-items: center;
-          justify-content: end;
-          width: 100%;
-          padding: 0 0 0 2rem;
-          .line {
-            border-bottom: 2px solid var(--primary-color);
-            width: 40%;
-          }
-          .or {
-            padding-inline: 0.5rem;
-            font-size: 1.25rem;
-            color: #1e2939;
           }
         }
       }
