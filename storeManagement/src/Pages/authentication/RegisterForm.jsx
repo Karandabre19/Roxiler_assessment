@@ -1,6 +1,6 @@
-import { faEnvelope, faLock, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLocation, faLocationDot, faLock, faMapLocationDot, faPhone, faSignature, faVoicemail } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "../../Components/Button/Button";
 import CustomInput from "../../Components/Input/CustomInput";
@@ -11,13 +11,10 @@ const Registration = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
   const dispatch = useDispatch();
-
-  const password = watch("user_password");
 
   const onSubmit = (data) => {
     console.log("I am here")
@@ -42,7 +39,7 @@ const Registration = () => {
             
             <form onSubmit={handleSubmit(onSubmit)}>
               <CustomInput
-                icon={faEnvelope}
+                icon={faSignature}
                 placeholder="Full Name"
                 type="text"
                 inputName="name"
@@ -51,7 +48,7 @@ const Registration = () => {
               />
               <CustomInput
                 placeholder="Enter Email"
-                icon={faPhone}
+                icon={faEnvelope}
                 type="email"
                 inputName="email"
                 register={register}
@@ -74,7 +71,7 @@ const Registration = () => {
                 }}
               />
               <CustomInput
-                icon={faLock}
+                icon={faMapLocationDot}
                 placeholder="Please add your personal address"
                 type="text"
                 inputName="address"
