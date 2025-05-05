@@ -3,20 +3,20 @@
     width: 100%;
     
         .authenticationButtons {
-        height: 70%;
-        width: 20%;
+        height: 100%;
+        width: 30%;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
         font-size: 4rem;
-    
+        
         .loginButton {
             display: flex;
             align-items: center;
             height: 100%;
             width: 40%;
-    
+
             .loginLinkButton {
             display: flex;
             justify-content: center;
@@ -26,7 +26,7 @@
             width: 100%;
             transition: 0.3s ease-in-out;
             color: var(--text-hover);
-    
+                        
             &:hover {
                 background-color: var(--secondary-color);
                 color: var(--text-hover);
@@ -35,13 +35,13 @@
             }
             }
         }
-    
+
         .registerButton {
             height: 100%;
             width: 40%;
             display: flex;
             align-items: center;
-    
+
             .registerLinkButton {
             display: flex;
             justify-content: center;

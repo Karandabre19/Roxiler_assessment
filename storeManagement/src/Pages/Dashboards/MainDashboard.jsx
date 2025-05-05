@@ -20,7 +20,7 @@
                 Sign Up
                 </CustomLink>
             </div>
-            </div>
+        </div>
         </Navbar>
         </div>
     )

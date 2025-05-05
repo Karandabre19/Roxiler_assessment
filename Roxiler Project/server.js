@@ -10,17 +10,15 @@ const { createDatabaseSchema, initializeAdminUser } = require('./models/userMode
 dotenv.config(); // Load all the end variable and build all the config all the config into the app
 // if it doesnt get the .env file we will
 // if (!process.env.PORT)
-// { 
+// {
 //     console.log("Fatal error : Port number is not defined")
 //     process.exit(true)
-// }
 
 const app = express(); // Here we are intializing new Instance of the App.
 
 app.use(express.json()); // when ever the data is being is sent from the client side is should be parsed into the express readable format
 
 app.use(cors()); // when the server is being called then the Cors will welcome as the gate keeper and keep that safe and secure
-
 
 app.use('/api/user' , userRouter)
 
